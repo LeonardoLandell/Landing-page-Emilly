@@ -1,0 +1,564 @@
+/* ===========================
+   Fonts
+   =========================== */
+@font-face {
+  font-family: "Belly";
+  src: url("/fonts/Belly.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --burnt-rose: #c97c7c;
+  --rosy-wine: #8b3a3a;
+  --quartz-pink: #f7cac9;
+  --elegant-gold: #d4af37; /* tom dourado clássico */
+}
+
+/* ===========================
+   Reset básico
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Mulish", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ===========================
+   Background com overlay
+   =========================== */
+body {
+  background: url("/logoC.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+}
+
+/* Overlay cobrindo a imagem com 80% */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-color: rgba(247, 202, 201, 0.7); /* Quartz Pink com 80% */
+  z-index: -1; /* atrás do conteúdo, mas acima da imagem */
+}
+
+/* ===========================
+   Navbar
+   =========================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(247, 202, 201, 0.9); /* Quartz Pink translúcido */
+  backdrop-filter: blur(6px);
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* separa ícone do texto */
+}
+
+.logo span {
+  font-family: "Belly", sans-serif; /* Headlines com Belly */
+  font-size: 1.8rem;
+  color: var(--burnt-rose);
+}
+
+/* Links desktop */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: "Mulish", sans-serif;
+  font-weight: 600;
+  color: var(--rosy-wine);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--elegant-gold);
+}
+
+/* Menu mobile */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.mobile-menu {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: var(--quartz-pink);
+  border-radius: 8px;
+  list-style: none;
+  padding: 1rem;
+}
+.mobile-menu li {
+  margin: 0.5rem 0;
+}
+.mobile-menu a {
+  color: var(--rosy-wine);
+  text-decoration: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ===========================
+   Hero
+   =========================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.hero h1 {
+  font-family: "Belly", sans-serif; /* Headlines com Belly */
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  color: var(--rosy-wine);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-family: "Mulish", sans-serif; /* Subtextos com Mulish */
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--rosy-wine);
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* ===========================
+   CTA Button
+   =========================== */
+.cta-button {
+  position: relative;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-family: "Mulish", sans-serif;
+  font-weight: bold;
+  color: var(--rosy-wine);
+  background-color: var(--elegant-gold); /* Elegant Gold */
+  border: 2px solid var(--rosy-wine); /* borda contrastante */
+  border-radius: 8px;
+  text-decoration: none;
+  z-index: 1;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===========================
+   CTA Buttons com Iluminação
+   =========================== */
+button,
+.cta-button {
+  position: relative;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-family: "Mulish", sans-serif;
+  font-weight: bold;
+  color: var(--rosy-wine);
+  background-color: var(--elegant-gold);
+  border: 2px solid var(--rosy-wine);
+  border-radius: 8px;
+  text-decoration: none;
+  z-index: 1;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+button:hover,
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); /* iluminação dourada */
+}
+
+/* Efeito de iluminação suave */
+button::after,
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shine 2.5s infinite;
+  z-index: 0;
+}
+
+@keyframes shine {
+  0% {
+    right: -50%;
+  }
+  100% {
+    right: 120%;
+  }
+}
+
+/* ===========================
+   Sobre Mim
+   =========================== */
+.sobre {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.sobre h2 {
+  font-family: "Belly", sans-serif; /* Headlines */
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--rosy-wine);
+  margin-bottom: 2rem;
+}
+
+.sobre-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin-bottom: 2rem;
+}
+
+.sobre-foto .foto {
+  border-radius: 12px;
+  border: 3px solid var(--rosy-wine);
+  object-fit: cover;
+}
+
+.sobre-texto {
+  font-family: "Mulish", sans-serif; /* Subtextos */
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--rosy-wine);
+  max-width: 500px;
+  text-align: left;
+}
+.servicos {
+  position: relative;
+  background: url("/images/fundo.jpg") center bottom/cover no-repeat;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Camada translúcida sobre o fundo */
+.servicos::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6); /* controla a transparência */
+  z-index: 0;
+}
+
+/* Garante que o conteúdo fique acima da camada translúcida */
+.servicos > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+@media (max-width: 1024px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .card img {
+    width: clamp(150px, 30vw, 250px);
+  }
+}
+.card {
+  position: relative;
+  background: url("/images/fundo-floral.png") center/cover no-repeat;
+  border-radius: 12px;
+  padding: 40px 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Borda dourada */
+  border: 3px solid var(--elegant-gold);
+
+  /* Purpurina/brilho dourado */
+  background-image:
+    url("/images/fundo-floral.png"),
+    radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.4), transparent 70%),
+    radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.4), transparent 70%);
+  background-blend-mode: overlay;
+  animation: glitter 6s infinite linear;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* Animação de glitter */
+@keyframes glitter {
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      100% 100%;
+  }
+  50% {
+    background-position:
+      50% 50%,
+      100% 0,
+      0 100%;
+  }
+  100% {
+    background-position:
+      0 0,
+      0 0,
+      100% 100%;
+  }
+}
+
+.card {
+  animation: glitter 6s infinite linear;
+}
+
+.card img {
+  width: 50px; /* aumenta o tamanho do ícone */
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2)); /* destaca o ícone */
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1); /* leve destaque ao passar o mouse */
+}
+
+.card h3 {
+  font-family: "Mulish", serif;
+  color: var(--rosy-wine);
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-family: "Mulish", sans-serif;
+  color: var(--rosy-wine);
+}
+/* ===========================
+   Depoimentos Responsivo
+   =========================== */
+.testimonials {
+  padding: 40px 20px;
+}
+.swiper {
+  width: 100%;
+  max-width: 600px;
+}
+.input-nome,
+.input-depoimento {
+  width: 100%;
+  max-width: 600px;
+}
+@media (max-width: 768px) {
+  .form-testimonial {
+    gap: 1rem;
+  }
+  .input-nome,
+  .input-depoimento {
+    font-size: 0.9rem;
+  }
+}
+
+.swiper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+}
+
+.swiper-slide {
+  font-family: Mulish, sans-serif;
+  font-style: italic;
+  color: var(--rosy-wine);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--elegant-gold);
+}
+
+.swiper-pagination-bullet {
+  background: var(--rosy-wine);
+}
+.swiper-pagination-bullet-active {
+  background: var(--elegant-gold);
+}
+
+.lista-testimonials {
+  margin-bottom: 30px;
+  font-family: Mulish;
+  font-style: italic;
+  color: var(--rosy-wine);
+}
+
+.form-testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.input-nome {
+  border: 2px solid var(--elegant-gold);
+  background-color: var(--quartz-pink); /* Quartz Rose */
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.input-depoimento {
+  border: 2px solid var(--elegant-gold);
+  background: url("/images/fundo-floral.png");
+  background-color: #fffaf0; /* tom suave para combinar */
+  min-height: 120px;
+  resize: vertical;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--elegant-gold);
+  color: var(--rosy-wine);
+  font-weight: bold;
+  padding: 0.8rem;
+  border: solid 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #d4af37; /* gold mais intenso */
+}
+
+.footer {
+  background-color: var(--quartz-pink);
+  color: #fff;
+  padding: 0rem;
+  margin: 0px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0rem;
+}
+
+.footer-logo img {
+  height: clamp(100px, 20vw, 250px);
+  margin-bottom: -20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 5rem;
+  margin-top: -40px;
+  margin-bottom: 10;
+}
+
+.footer-icon {
+  color: var(--burnt-rose);
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: 0.2s;
+}
+
+.footer-icon:hover {
+  color: #f7cac9; /* quartz rose */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sobre-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .sobre-texto {
+    text-align: center;
+  }
+}
+
+@keyframes shine {
+  0% {
+    right: -50%;
+  }
+  100% {
+    right: 120%;
+  }
+}

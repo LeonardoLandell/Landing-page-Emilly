@@ -33,13 +33,6 @@ A landing page foi publicada e está em uso real, consolidando-se como um **case
 O projeto está publicado no **Vercel**:  
 👉 [Acesse o site aqui](https://landing-emilly.vercel.app)
 
----
-
-## 📸 Screenshots
-*(adicione prints da página aqui para visualização rápida)*
-
----
-
 ## 📌 Nota
 Este projeto representa um **produto finalizado para cliente**, autorizado para inclusão no portfólio da **Landell.Studio**.  
 É um exemplo concreto de como uma landing page bem planejada pode elevar a presença digital de um negócio.

@@ -7,9 +7,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         {/* Logo */}
-        <div className="footer-logo">
-          <img src="/images/logo.png" alt="Logo" />
-        </div>
+        <div className="footer-logo"></div>
 
         {/* Links com ícones */}
         <div className="footer-links">

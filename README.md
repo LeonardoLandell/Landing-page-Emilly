@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/logo-landell.png" alt="Landell.Studio Logo" width="200"/>
+  <img src="./assets/logo.png" alt="Landell.Studio Logo" width="200"/>
 </p>
 
 # Landing Page - Emilly | Landell.Studio
